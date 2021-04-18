@@ -15,12 +15,15 @@ class _PageContinenteState extends State<PageContinente> {
   @override
   Widget build(BuildContext context) {
     var pseudoLista = ["China", "PaisAsia", "OutraAsia"];
+    final arguments = ModalRoute.of(context).settings.arguments;
+    final Continentes informacoesContinente = arguments;
+    print(informacoesContinente.updated);
     //getHttp();
     return DefaultTabController(
       length: 2,
       child: Scaffold(
           appBar: AppBar(
-              title: Text('Asia'),
+              title: Text(informacoesContinente.continent),
               centerTitle: true,
               bottom: TabBar(tabs: [
                 Tab(
@@ -53,7 +56,7 @@ class _PageContinenteState extends State<PageContinente> {
                                 height: 30,
                               ),
                               Text('Total de casos'),
-                              Text('35000'),
+                              Text(informacoesContinente.cases.toString()),
                               SizedBox(
                                 height: 30,
                               ),
@@ -69,19 +72,33 @@ class _PageContinenteState extends State<PageContinente> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text('27%',
+                                  Text(
+                                      (informacoesContinente.active /
+                                                  informacoesContinente.cases *
+                                                  100)
+                                              .toStringAsPrecision(2) +
+                                          '%',
                                       style: TextStyle(
                                           fontFamily: 'Ubuntu-Bold',
                                           fontSize: 22,
                                           color: Color(0xff4461C2))),
-                                  Text('27%',
+                                  Text(
+                                      (informacoesContinente.recovered /
+                                                  informacoesContinente.cases *
+                                                  100)
+                                              .toStringAsPrecision(2) +
+                                          '%',
                                       style: TextStyle(
                                         fontFamily: 'Ubuntu-Bold',
                                         fontSize: 22,
                                         color: Color(0xff5FD92B),
                                       )),
                                   Text(
-                                    '27%',
+                                    (informacoesContinente.deaths /
+                                                informacoesContinente.cases *
+                                                100)
+                                            .toStringAsPrecision(2) +
+                                        '%',
                                     style: TextStyle(
                                       fontFamily: 'Ubuntu-Bold',
                                       fontSize: 22,
@@ -120,12 +137,16 @@ class _PageContinenteState extends State<PageContinente> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text('+ 15000',
+                                  Text(
+                                      informacoesContinente.todayCases
+                                          .toString(),
                                       style: TextStyle(
                                           fontFamily: 'Ubuntu-Bold',
                                           fontSize: 22,
                                           color: Color(0xff4461C2))),
-                                  Text('+ 1160',
+                                  Text(
+                                      informacoesContinente.todayDeaths
+                                          .toString(),
                                       style: TextStyle(
                                         fontFamily: 'Ubuntu-Bold',
                                         fontSize: 22,
@@ -163,12 +184,14 @@ class _PageContinenteState extends State<PageContinente> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text('15000',
+                                  Text(informacoesContinente.tests.toString(),
                                       style: TextStyle(
                                           fontFamily: 'Ubuntu-Bold',
                                           fontSize: 22,
                                           color: Color(0xff4461C2))),
-                                  Text('116000000',
+                                  Text(
+                                      informacoesContinente.population
+                                          .toString(),
                                       style: TextStyle(
                                         fontFamily: 'Ubuntu-Bold',
                                         fontSize: 22,

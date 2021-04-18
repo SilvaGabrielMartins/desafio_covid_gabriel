@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -12,21 +15,31 @@ class PageHome extends StatefulWidget {
 }
 
 class _PageHomeState extends State<PageHome> {
-  /*Future<Continentes> getHttp() async {
-    try {
-      Response response = await Dio()
-          .get("https://disease.sh/v3/covid-19/continents?yesterday=true");
-      var modeloContinente = Continentes.fromJson(response.data);
-      print(response);
-      //return modeloContinente;
-    } catch (e) {
-      print(e);
-    }*/
-  // await Future.delayed(Duration(seconds: 5));
+  var continentes = [];
+
+  _getContinentes() {
+    API.getContinentes().then((response) {
+      Iterable lista = json.decode(response.body);
+      continentes = lista.map((model) => Continentes.fromJson(model)).toList();
+    });
+  }
+  // Future<List<Continentes>> getContinentes() async {
+  //   try {
+  //     Response response = await Dio()
+  //         .get("https://disease.sh/v3/covid-19/continents?yesterday=true");
+  //     //var modeloContinente = Continentes.fromJson(response.data);
+  //     print(response.data);
+  //     //return modeloContinente;
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //   // await Future.delayed(Duration(seconds: 5));
+  // }
 
   @override
   Widget build(BuildContext context) {
-    //getHttp();
+    _getContinentes();
+    print(continentes);
     return Scaffold(
       appBar: AppBar(
         /*leading: Builder(
@@ -43,12 +56,13 @@ class _PageHomeState extends State<PageHome> {
       ),
       body: Center(
           child: ListView.builder(
-        itemCount: 6,
+        itemCount: continentes.length,
         itemBuilder: (_, index) {
           return Card(
             child: ListTile(
-                title: Text('Nome.. $index'),
-                subtitle: Text('Descricao Qualquer...'),
+                title: Text(continentes[index].continent),
+                subtitle: Text(
+                    continentes[index].countries.length.toString() + ' países'),
                 leading: Builder(builder: (BuildContext context) {
                   return IconButton(
                     icon: Image.asset('assets/images/continente$index.png',
@@ -63,7 +77,8 @@ class _PageHomeState extends State<PageHome> {
                 isThreeLine: true,
                 dense: false,
                 onTap: () {
-                  Navigator.pushNamed(context, '/pagecontinente');
+                  Navigator.pushNamed(context, '/pagecontinente',
+                      arguments: continentes[index]);
                 }),
           );
         },
