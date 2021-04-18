@@ -57,10 +57,9 @@ flutter:
     - family: Ubuntu
       fonts:
         - asset: assets/fonts/Ubuntu-Regular.ttf
+          weight: 400
         - asset: assets/fonts/Ubuntu-Bold.ttf
           weight: 700
-    - family: Trajan Pro
-      fonts:
         - asset: assets/fonts/Ubuntu-Medium.ttf
           weight: 500
   # For details regarding fonts from package dependencies,

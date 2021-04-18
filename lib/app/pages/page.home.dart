@@ -42,7 +42,7 @@ class _PageHomeState extends State<PageHome> {
     print(continentes);
     return Scaffold(
       appBar: AppBar(
-        /*leading: Builder(
+        leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: Image.asset('assets/images/Mask Group 215.png'),
@@ -50,7 +50,7 @@ class _PageHomeState extends State<PageHome> {
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },
-        ),*/
+        ),
         title: Text('Covid-19'),
         centerTitle: true,
       ),
@@ -60,7 +60,8 @@ class _PageHomeState extends State<PageHome> {
         itemBuilder: (_, index) {
           return Card(
             child: ListTile(
-                title: Text(continentes[index].continent),
+                title: Text(continentes[index].continent,
+                    style: TextStyle(color: Color(0xFF1E2243))),
                 subtitle: Text(
                     continentes[index].countries.length.toString() + ' países'),
                 leading: Builder(builder: (BuildContext context) {

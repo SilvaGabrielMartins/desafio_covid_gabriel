@@ -262,13 +262,16 @@ class _PageContinenteState extends State<PageContinente> {
               // ),
               Container(
                   child: ListView.builder(
-                      itemCount: pseudoLista.length,
+                      itemCount: informacoesContinente.countries.length,
                       itemBuilder: (_, index) {
                         return Card(
                           child: ListTile(
-                              title: Text(pseudoLista[index]),
+                              title:
+                                  Text(informacoesContinente.countries[index]),
                               onTap: () {
-                                Navigator.pushNamed(context, '/pagepais');
+                                Navigator.pushNamed(context, '/pagepais',
+                                    arguments:
+                                        informacoesContinente.countries[index]);
                               }),
                         );
                       })),

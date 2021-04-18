@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/Pais.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/api.dart';
 import 'package:flutter/material.dart';
 
 class PagePais extends StatefulWidget {
@@ -8,10 +13,28 @@ class PagePais extends StatefulWidget {
 }
 
 class _PagePaisState extends State<PagePais> {
+  var informacaoPais;
+  _getPais(String pais) {
+    API.getPais(pais).then((response) {
+      Map informacaoPaisMap = jsonDecode(response.body);
+      informacaoPais = new Pais.fromJson(informacaoPaisMap);
+      print(informacaoPais.cases);
+      //listaPais = json.decode(response.body);
+      //Iterable listaPais = json.decode(response.body);
+      //listaPais = listaPais.map((model) => Continentes.fromJson(model)).toList();
+      //print(informacaoPais.cases);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final arguments = ModalRoute.of(context).settings.arguments;
+    final informacoesContinente = arguments;
+    print(informacoesContinente);
+    _getPais(informacoesContinente);
+    print(informacaoPais);
     return Scaffold(
-        appBar: AppBar(title: Text('País'), centerTitle: true),
+        appBar: AppBar(title: Text(informacoesContinente), centerTitle: true),
         body: Column(children: [
           SizedBox(
             height: 10,
@@ -23,12 +46,15 @@ class _PagePaisState extends State<PagePais> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                 //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('País'),
+                  //Image.network(jsonPais['urlBandeira'], width: 75, height: 75),
+                  (Image.network(informacaoPais.countryInfo.flag,
+                      width: 75, height: 75)),
+                  Text(informacoesContinente),
                   SizedBox(
                     height: 30,
                   ),
                   Text('Total de casos'),
-                  Text('35000'),
+                  Text(informacaoPais.cases.toString()),
                   SizedBox(
                     height: 30,
                   ),
@@ -42,19 +68,29 @@ class _PagePaisState extends State<PagePais> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('27%',
+                      Text(
+                          (informacaoPais.active / informacaoPais.cases * 100)
+                                  .toStringAsPrecision(2) +
+                              '%',
                           style: TextStyle(
                               fontFamily: 'Ubuntu-Bold',
                               fontSize: 22,
                               color: Color(0xff4461C2))),
-                      Text('27%',
+                      Text(
+                          (informacaoPais.recovered /
+                                      informacaoPais.cases *
+                                      100)
+                                  .toStringAsPrecision(2) +
+                              '%',
                           style: TextStyle(
                             fontFamily: 'Ubuntu-Bold',
                             fontSize: 22,
                             color: Color(0xff5FD92B),
                           )),
                       Text(
-                        '27%',
+                        (informacaoPais.deaths / informacaoPais.cases * 100)
+                                .toStringAsPrecision(2) +
+                            '%',
                         style: TextStyle(
                           fontFamily: 'Ubuntu-Bold',
                           fontSize: 22,
