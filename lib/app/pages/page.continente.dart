@@ -14,6 +14,7 @@ class PageContinente extends StatefulWidget {
 class _PageContinenteState extends State<PageContinente> {
   @override
   Widget build(BuildContext context) {
+    var pseudoLista = ["China", "PaisAsia", "OutraAsia"];
     //getHttp();
     return DefaultTabController(
       length: 2,
@@ -32,35 +33,82 @@ class _PageContinenteState extends State<PageContinente> {
           body: TabBarView(
             children: [
               SizedBox(
-                width: 435,
-                height: 246,
-                child: Container(
-                    color: Colors.red,
-                    child: Column(
-                      children: [
-                        Text('Total'),
-                        Text('Total de casos'),
-                        Text('35000'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('Ativos'),
-                            Text('Curados'),
-                            Text('Óbitos'),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('27%'),
-                            Text('29%'),
-                            Text('30%'),
-                          ],
-                        ),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                width: 100,
+                height: 100,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        color: Color(0xFFFFFFFF),
+                        width: 345,
+                        height: 246,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Total'),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text('Total de casos'),
+                              Text('35000'),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text('Ativos'),
+                                    Text('Curados'),
+                                    Text('Óbitos'),
+                                  ]),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text('27%',
+                                      style: TextStyle(
+                                          fontFamily: 'Ubuntu-Bold',
+                                          fontSize: 22,
+                                          color: Color(0xff4461C2))),
+                                  Text('27%',
+                                      style: TextStyle(
+                                        fontFamily: 'Ubuntu-Bold',
+                                        fontSize: 22,
+                                        color: Color(0xff5FD92B),
+                                      )),
+                                  Text(
+                                    '27%',
+                                    style: TextStyle(
+                                      fontFamily: 'Ubuntu-Bold',
+                                      fontSize: 22,
+                                      color: Color(0xffFF2665),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ])),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        color: Color(0xFFFFFFFF),
+                        width: 345,
+                        height: 156,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Hoje'),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
                               Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -69,17 +117,41 @@ class _PageContinenteState extends State<PageContinente> {
                                     Text('Óbitos'),
                                   ]),
                               Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text('+ 15000'),
-                                    Text('+ 170'),
-                                  ])
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text('+ 15000',
+                                      style: TextStyle(
+                                          fontFamily: 'Ubuntu-Bold',
+                                          fontSize: 22,
+                                          color: Color(0xff4461C2))),
+                                  Text('+ 1160',
+                                      style: TextStyle(
+                                        fontFamily: 'Ubuntu-Bold',
+                                        fontSize: 22,
+                                        color: Color(0xff5FD92B),
+                                      )),
+                                ],
+                              )
+                            ])),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        color: Color(0xFFFFFFFF),
+                        width: 345,
+                        height: 159,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Teste'),
+                              Text('Testes'),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
                               Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -88,17 +160,95 @@ class _PageContinenteState extends State<PageContinente> {
                                     Text('Populacao'),
                                   ]),
                               Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text('15000'),
-                                    Text('170'),
-                                  ])
-                            ])
-                      ],
-                    )),
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text('15000',
+                                      style: TextStyle(
+                                          fontFamily: 'Ubuntu-Bold',
+                                          fontSize: 22,
+                                          color: Color(0xff4461C2))),
+                                  Text('116000000',
+                                      style: TextStyle(
+                                        fontFamily: 'Ubuntu-Bold',
+                                        fontSize: 22,
+                                        color: Color(0xff5FD92B),
+                                      )),
+                                ],
+                              )
+                            ])),
+                  ],
+                ),
               ),
-              Container(),
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //             children: [
+              //               Text('Ativos'),
+              //               Text('Curados'),
+              //               Text('Óbitos'),
+              //             ],
+              //           ),
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //             children: [
+              //               Text('27%'),
+              //               Text('29%'),
+              //               Text('30%'),
+              //             ],
+              //           ),
+              //           Column(
+              //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //               children: [
+              //                 Text('Hoje'),
+              //                 Row(
+              //                     mainAxisAlignment:
+              //                         MainAxisAlignment.spaceEvenly,
+              //                     children: [
+              //                       Text('Casos'),
+              //                       Text('Óbitos'),
+              //                     ]),
+              //                 Row(
+              //                     mainAxisAlignment:
+              //                         MainAxisAlignment.spaceEvenly,
+              //                     children: [
+              //                       Text('+ 15000'),
+              //                       Text('+ 170'),
+              //                     ])
+              //               ]),
+              //           Column(
+              //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //               children: [
+              //                 Text('Teste'),
+              //                 Row(
+              //                     mainAxisAlignment:
+              //                         MainAxisAlignment.spaceEvenly,
+              //                     children: [
+              //                       Text('Realizados'),
+              //                       Text('Populacao'),
+              //                     ]),
+              //                 Row(
+              //                     mainAxisAlignment:
+              //                         MainAxisAlignment.spaceEvenly,
+              //                     children: [
+              //                       Text('15000'),
+              //                       Text('170'),
+              //                     ])
+              //               ])
+              //         ],
+              //       )),
+              // ),
+              Container(
+                  child: ListView.builder(
+                      itemCount: pseudoLista.length,
+                      itemBuilder: (_, index) {
+                        return Card(
+                          child: ListTile(
+                              title: Text(pseudoLista[index]),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/pagepais');
+                              }),
+                        );
+                      })),
             ],
           )),
     );

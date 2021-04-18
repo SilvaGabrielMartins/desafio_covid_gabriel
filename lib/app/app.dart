@@ -1,4 +1,5 @@
 import 'package:desafio_covid_gabriel/app/pages/page.continente.dart';
+import 'package:desafio_covid_gabriel/app/pages/page.pais.dart';
 import 'package:flutter/material.dart';
 import 'pages/page.home.dart';
 
@@ -13,6 +14,7 @@ class App extends StatelessWidget {
       routes: {
         '/': (context) => PageHome(),
         '/pagecontinente': (context) => PageContinente(),
+        '/pagepais': (context) => PagePais(),
       },
     );
   }
