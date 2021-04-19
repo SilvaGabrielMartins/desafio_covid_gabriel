@@ -4,6 +4,7 @@ import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
 import 'package:desafio_covid_gabriel/app/shared/models/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PageHome extends StatefulWidget {
   PageHome({Key key, this.title}) : super(key: key);
@@ -51,7 +52,14 @@ class _PageHomeState extends State<PageHome> {
             );
           },
         ),
-        title: Text('Covid-19'),
+        title: Text(
+          'Covid-19',
+          style: GoogleFonts.ubuntu(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF1E2243),
+          ),
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -61,9 +69,18 @@ class _PageHomeState extends State<PageHome> {
           return Card(
             child: ListTile(
                 title: Text(continentes[index].continent,
-                    style: TextStyle(color: Color(0xFF1E2243))),
+                    style: GoogleFonts.ubuntu(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF1E2243),
+                    )),
                 subtitle: Text(
-                    continentes[index].countries.length.toString() + ' países'),
+                    continentes[index].countries.length.toString() + ' países',
+                    style: GoogleFonts.ubuntu(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF969AA8),
+                    )),
                 leading: Builder(builder: (BuildContext context) {
                   return IconButton(
                     icon: Image.asset('assets/images/continente$index.png',
