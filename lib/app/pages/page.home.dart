@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
 import 'package:desafio_covid_gabriel/app/shared/repository/api.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +26,6 @@ class _PageHomeState extends State<PageHome> {
   @override
   Widget build(BuildContext context) {
     _getContinentes();
-    print(continentes);
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -74,8 +72,7 @@ class _PageHomeState extends State<PageHome> {
                     return Image.asset(
                       'assets/images/continente$index@2x.png',
                     );
-                  }), //Image.asset(
-                  //'Bootcamp-Squadra/Bootcamp-ProgramaNewThinkers2021/Trilha_Flutter/Desafio/desafio_covid_gabriel/assets/images/continentes/asia.png'),
+                  }),
                   trailing: Icon(Icons.arrow_forward_ios),
                   isThreeLine: true,
                   dense: false,

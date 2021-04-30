@@ -1,5 +1,4 @@
 import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class PageContinente extends StatefulWidget {
@@ -14,11 +13,8 @@ class PageContinente extends StatefulWidget {
 class _PageContinenteState extends State<PageContinente> {
   @override
   Widget build(BuildContext context) {
-    var pseudoLista = ["China", "PaisAsia", "OutraAsia"];
     final arguments = ModalRoute.of(context).settings.arguments;
     final Continentes informacoesContinente = arguments;
-    print(informacoesContinente.updated);
-    //getHttp();
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -49,7 +45,6 @@ class _PageContinenteState extends State<PageContinente> {
                         height: 246,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Total'),
                               SizedBox(
@@ -117,7 +112,6 @@ class _PageContinenteState extends State<PageContinente> {
                         height: 156,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Hoje'),
                               SizedBox(
@@ -164,7 +158,6 @@ class _PageContinenteState extends State<PageContinente> {
                         height: 159,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Testes'),
                               SizedBox(
@@ -203,63 +196,6 @@ class _PageContinenteState extends State<PageContinente> {
                   ],
                 ),
               ),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //             children: [
-              //               Text('Ativos'),
-              //               Text('Curados'),
-              //               Text('Óbitos'),
-              //             ],
-              //           ),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //             children: [
-              //               Text('27%'),
-              //               Text('29%'),
-              //               Text('30%'),
-              //             ],
-              //           ),
-              //           Column(
-              //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //               children: [
-              //                 Text('Hoje'),
-              //                 Row(
-              //                     mainAxisAlignment:
-              //                         MainAxisAlignment.spaceEvenly,
-              //                     children: [
-              //                       Text('Casos'),
-              //                       Text('Óbitos'),
-              //                     ]),
-              //                 Row(
-              //                     mainAxisAlignment:
-              //                         MainAxisAlignment.spaceEvenly,
-              //                     children: [
-              //                       Text('+ 15000'),
-              //                       Text('+ 170'),
-              //                     ])
-              //               ]),
-              //           Column(
-              //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //               children: [
-              //                 Text('Teste'),
-              //                 Row(
-              //                     mainAxisAlignment:
-              //                         MainAxisAlignment.spaceEvenly,
-              //                     children: [
-              //                       Text('Realizados'),
-              //                       Text('Populacao'),
-              //                     ]),
-              //                 Row(
-              //                     mainAxisAlignment:
-              //                         MainAxisAlignment.spaceEvenly,
-              //                     children: [
-              //                       Text('15000'),
-              //                       Text('170'),
-              //                     ])
-              //               ])
-              //         ],
-              //       )),
-              // ),
               Container(
                   child: ListView.builder(
                       itemCount: informacoesContinente.countries.length,

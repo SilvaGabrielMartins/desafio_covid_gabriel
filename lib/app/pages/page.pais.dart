@@ -1,6 +1,5 @@
 import 'dart:convert';
-import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
-import 'package:desafio_covid_gabriel/app/shared/models/Pais.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/pais.dart';
 import 'package:desafio_covid_gabriel/app/shared/repository/api.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +24,7 @@ class _PagePaisState extends State<PagePais> {
   Widget build(BuildContext context) {
     final arguments = ModalRoute.of(context).settings.arguments;
     final informacoesContinente = arguments;
-    print(informacoesContinente);
     _getPais(informacoesContinente);
-    print(informacaoPais);
     return Scaffold(
         appBar: AppBar(title: Text(informacoesContinente), centerTitle: true),
         body: Column(children: [
@@ -38,10 +35,9 @@ class _PagePaisState extends State<PagePais> {
             color: Color(0xFFFFFFFF),
             width: 345,
             height: 246,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                //mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  //Image.network(jsonPais['urlBandeira'], width: 75, height: 75),
                   (Image.network(informacaoPais.countryInfo.flag,
                       width: 75, height: 75)),
                   Text(informacoesContinente),
