@@ -1,8 +1,7 @@
 import 'dart:convert';
 
-import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
-import 'package:desafio_covid_gabriel/app/shared/models/api.dart';
-import 'package:dio/dio.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
+import 'package:desafio_covid_gabriel/app/shared/repository/api.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,18 +23,6 @@ class _PageHomeState extends State<PageHome> {
       continentes = lista.map((model) => Continentes.fromJson(model)).toList();
     });
   }
-  // Future<List<Continentes>> getContinentes() async {
-  //   try {
-  //     Response response = await Dio()
-  //         .get("https://disease.sh/v3/covid-19/continents?yesterday=true");
-  //     //var modeloContinente = Continentes.fromJson(response.data);
-  //     print(response.data);
-  //     //return modeloContinente;
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  //   // await Future.delayed(Duration(seconds: 5));
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -98,24 +85,7 @@ class _PageHomeState extends State<PageHome> {
                   }),
             );
           },
-        )
-
-            // ListView.builder(
-            //   itemCount: 6,
-            //   itemBuilder: (_, index) {
-            //     return Card(
-            //       child: ListTile(
-            //           title: Text('Nome.. $index'),
-            //           subtitle: Text('Descricao Qualquer...'),
-            //           leading: Icon(Icons.account_circle, size: 44),
-            //           trailing: Icon(Icons.arrow_forward_ios),
-            //           isThreeLine: true,
-            //           dense: false,
-            //           onTap: () {}),
-            //     );
-            //   },
-            // )
-            ),
+        )),
       ),
     );
   }

@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
 import 'package:desafio_covid_gabriel/app/shared/models/Pais.dart';
-import 'package:desafio_covid_gabriel/app/shared/models/api.dart';
+import 'package:desafio_covid_gabriel/app/shared/repository/api.dart';
 import 'package:flutter/material.dart';
 
 class PagePais extends StatefulWidget {
@@ -19,11 +18,8 @@ class _PagePaisState extends State<PagePais> {
       Map informacaoPaisMap = jsonDecode(response.body);
       informacaoPais = new Pais.fromJson(informacaoPaisMap);
       print(informacaoPais.cases);
-      //listaPais = json.decode(response.body);
-      //Iterable listaPais = json.decode(response.body);
-      //listaPais = listaPais.map((model) => Continentes.fromJson(model)).toList();
-      //print(informacaoPais.cases);
     });
+    setState(() {});
   }
 
   @override
