@@ -20,6 +20,7 @@ class _PageHomeState extends State<PageHome> {
     API.getContinentes().then((response) {
       Iterable lista = json.decode(response.body);
       continentes = lista.map((model) => Continentes.fromJson(model)).toList();
+      setState(() {});
     });
   }
 
