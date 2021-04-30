@@ -1,4 +1,4 @@
-import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

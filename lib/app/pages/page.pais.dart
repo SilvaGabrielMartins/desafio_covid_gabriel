@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:desafio_covid_gabriel/app/shared/models/Continente.dart';
+import 'package:desafio_covid_gabriel/app/shared/models/continente.dart';
 import 'package:desafio_covid_gabriel/app/shared/models/Pais.dart';
 import 'package:desafio_covid_gabriel/app/shared/repository/api.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +17,8 @@ class _PagePaisState extends State<PagePais> {
     API.getPais(pais).then((response) {
       Map informacaoPaisMap = jsonDecode(response.body);
       informacaoPais = new Pais.fromJson(informacaoPaisMap);
-      print(informacaoPais.cases);
+      setState(() {});
     });
-    setState(() {});
   }
 
   @override
